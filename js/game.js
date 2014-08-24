@@ -173,9 +173,13 @@ var WorldManager = {
   respawnResource: function(resource) {
     var x = Math.random() * (game.world.width - 40);
     x = Math.max(x, 40)
-    resource.scale.setTo(0.5, 0.5);
-    resource.body.width = 35;
+    if (70/game.world.width > 0.15) {
+      resource.body.width = 25;
+    } else {
+      resource.body.width = 35;
+    }
     resource.body.height = 20;
+    resource.scale.setTo(0.5, 0.5);
     resource.reset(x, 0);
     var velocityRatio = Math.min(game.height/700, 1);
     resource.body.velocity.y = (500+300*Math.random())*velocityRatio;
@@ -279,6 +283,9 @@ var MENU_STATE = {
 
     // audios
     game.load.audio('intro', 'assets/intro.mp3');
+    game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+    game.scale.setScreenSize();
+    game.scale.refresh();
   },
   create: function() {
     // world
@@ -303,7 +310,7 @@ var MENU_STATE = {
     menuSound.play('', 0, 0.8, true);
 
     // play
-    var startButton = game.add.button(game.width/2, game.height*2/3 - 30, 'startButton', function() {
+    var startButton = game.add.button(game.width/2, game.height - 140, 'startButton', function() {
       menuSound.stop();
       game.state.start('play');
     }, this);
@@ -378,7 +385,7 @@ var GAMEOVER_STATE = {
 // get dimensions of the window considering retina displays
 var gameWidth = window.innerWidth,
     gameHeight = window.innerHeight;
-var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'Ice Bucket Collect Challange');
+var game = new Phaser.Game(850, 550, Phaser.AUTO, 'Ice Bucket Collect Challange');
 
 game.state.add('menu', MENU_STATE);
 game.state.add('play', PLAY_STATE);
