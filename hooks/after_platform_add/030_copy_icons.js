@@ -47,62 +47,62 @@ var filestocopy = [{
     "platforms/android/res/drawable-xhdpi/splash.png"
 }, {
     "app_resources/icons/ios/icon-72.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-72.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-72.png"
 }, {
     "app_resources/icons/ios/icon-72.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-76.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-76.png"
 }, {
     "app_resources/icons/ios/icon-small.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-small.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-small.png"
 }, {
     "app_resources/icons/ios/icon-small@2x.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-small@2x.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-small@2x.png"
 },  {
     "app_resources/icons/ios/icon-40.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-40.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-40.png"
 }, {
     "app_resources/icons/ios/icon-40@2x.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-40@2x.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-40@2x.png"
 }, {
     "app_resources/icons/ios/icon-50.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-50.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-50.png"
 }, {
     "app_resources/icons/ios/icon-50@2x.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-50@2x.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-50@2x.png"
 }, {
     "app_resources/icons/ios/icon-60.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-60.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-60.png"
 }, {
     "app_resources/icons/ios/icon-60@2x.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-60@2x.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-60@2x.png"
 }, {
     "app_resources/icons/ios/icon-57.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon.png"
 }, {
     "app_resources/icons/ios/icon-57@2x.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon@2x.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon@2x.png"
 }, {
     "app_resources/icons/ios/icon-72@2x.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-72@2x.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-72@2x.png"
 }, {
     "app_resources/icons/ios/icon-72@2x.png":
-    "platforms/ios/PPCR Course/Resources/icons/icon-76@2x.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/icons/icon-76@2x.png"
 }, {
     "app_resources/screens/ios/screen-iphone-portrait-2x.png":
-    "platforms/ios/PPCR Course/Resources/splash/Default@2x~iphone.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default@2x~iphone.png"
 }, {
     "app_resources/screens/ios/screen-iphone-portrait-568h-2x.png":
-    "platforms/ios/PPCR Course/Resources/splash/Default-568h@2x~iphone.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default-568h@2x~iphone.png"
 }, {
     "app_resources/screens/ios/screen-iphone-portrait.png":
-    "platforms/ios/PPCR Course/Resources/splash/Default~iphone.png"
+    "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default~iphone.png"
 }
 //, {
 //     "app_resources/screens/ios/Default-Portrait~ipad.png":
-//      "platforms/ios/PPCR Course/Resources/splash/Default-Portrait~ipad.png"
+//      "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default-Portrait~ipad.png"
 // }, {
 //     "app_resources/screens/ios/Default-Portrait@2x~ipad.png":
-//     "platforms/ios/PPCR Course/Resources/splash/Default-Portrait@2x~ipad.png"
+//     "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default-Portrait@2x~ipad.png"
 // }
 ];
 
