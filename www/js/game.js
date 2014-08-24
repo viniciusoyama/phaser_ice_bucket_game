@@ -12,11 +12,12 @@ var menuSound, collectSound, gameOverSound, playingSound;
 var menuIce;
 var score;
 var game;
+
+window.device = window.device || {};
 var cordovaPath = (function() {
-  var devicePlatform = device.platform;
-  if (devicePlatform === "iOS") {
-    path = "";
-  } else if (devicePlatform === "Android" || devicePlatform === 'android') {
+  var devicePlatform = window.device.platform;
+  var path = "";
+  if (devicePlatform === "Android" || devicePlatform === 'android') {
     path = "/android_asset/www/";
   }
   return path;
@@ -133,9 +134,6 @@ var GameCreator = {
     scoreText = game.add.text(16, 16, '0', { fontSize: '32px', fill: '#000' });
   },
   setupSounds: function() {
-    collectSound = game.add.audio('iceCollected');
-    gameOverSound = game.add.audio('gameOverSound');
-    playingSound = game.add.audio('background');
     playingSound.play('', 0, 0.5, true);
   }
 }
@@ -292,16 +290,10 @@ var MENU_STATE = {
     // audios
     // game.load.audio('intro', 'assets/intro.mp3');
     console.log('ae');
-    menuSound = new Media(cordovaPath + 'assets/intro.mp3',
-    // success callback
-    function () {
-        console.log("playAudio():Audio Success");
-    },
-    // error callback
-    function (err) {
-        console.log("playAudio():Audio Error: " + err);
-    });
-    console.log('4');
+    menuSound = game.add.audio('intro');
+    collectSound = game.add.audio('iceCollected');
+    gameOverSound = game.add.audio('gameOverSound');
+    playingSound = game.add.audio('background');
 
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.scale.setScreenSize();
@@ -326,7 +318,6 @@ var MENU_STATE = {
     menuIce.body.gravity.y = 500;
 
     // sounds
-    menuSound.setVolume(0.5)
     menuSound.play();
 
     // play
