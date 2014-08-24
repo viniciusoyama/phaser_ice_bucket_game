@@ -178,7 +178,8 @@ var WorldManager = {
     resource.body.width = 35;
     resource.body.height = 20;
     resource.reset(x, 0);
-    resource.body.gravity.y = 500 + 1000*Math.random();
+    var velocityRatio = Math.min(game.height/700, 1);
+    resource.body.velocity.y = 800*velocityRatio*Math.random();
 
   }
 };
