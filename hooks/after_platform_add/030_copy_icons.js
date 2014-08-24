@@ -97,13 +97,13 @@ var filestocopy = [{
     "app_resources/screens/ios/screen-iphone-portrait.png":
     "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default~iphone.png"
 }
-//, {
-//     "app_resources/screens/ios/Default-Portrait~ipad.png":
-//      "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default-Portrait~ipad.png"
-// }, {
-//     "app_resources/screens/ios/Default-Portrait@2x~ipad.png":
-//     "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default-Portrait@2x~ipad.png"
-// }
+, {
+    "app_resources/screens/ios/Default-Portrait~ipad.png":
+     "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default-Portrait~ipad.png"
+}, {
+    "app_resources/screens/ios/Default-Portrait@2x~ipad.png":
+    "platforms/ios/Ice Bucket Collect Challange/Resources/splash/Default-Portrait@2x~ipad.png"
+}
 ];
 
 
