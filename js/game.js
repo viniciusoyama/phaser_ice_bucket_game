@@ -361,8 +361,8 @@ var GAMEOVER_STATE = {
 }
 
 // get dimensions of the window considering retina displays
-var gameWidth = window.innerWidth * window.devicePixelRatio,
-    gameHeight = window.innerHeight * window.devicePixelRatio;
+var gameWidth = window.innerWidth,
+    gameHeight = window.innerHeight;
 var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'Ice Bucket Collect Challange');
 
 game.state.add('menu', MENU_STATE);
