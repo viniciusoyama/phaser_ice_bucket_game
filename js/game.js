@@ -108,7 +108,7 @@ var GameCreator = {
     player = game.add.sprite(32, game.world.height - 150, 'player');
     game.physics.arcade.enable(player);
     game.physics.arcade.enableBody(player);
-
+    player.body.moves = false
     player.body.bounce.x = 0;
     player.body.collideWorldBounds = true;
     player.y = game.height - player.height;
@@ -205,7 +205,7 @@ var GameUpdater = {
   doPlayerMovementByTouch: function() {
     if (game.input.pointer1.isDown) {
       if (game.physics.arcade.distanceToPointer(player, game.input.pointer1) > 10) {
-        player.x = game.input.pointer1.worldX;
+        player.x = game.input.pointer1.x;
         // game.physics.arcade.moveToXY(player, game.input.pointer1.x, player.y, 1000, 100);
         // game.add.text(game.width/2, 200, game.input.pointer1.x, { fontSize: '32px', fill: '#fff', shadowBlur: 7, shadowColor: '#5aa4c0' });
       }
