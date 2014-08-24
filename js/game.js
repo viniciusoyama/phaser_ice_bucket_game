@@ -192,8 +192,9 @@ var GameUpdater = {
   doPlayerMovementByTouch: function() {
     if (game.input.pointer1.isDown) {
       if (game.physics.arcade.distanceToPointer(player, game.input.pointer1) > 10) {
-        player.x = 14;
-        game.add.text(game.width/2, 200, game.input.pointer1.x, { fontSize: '32px', fill: '#fff', shadowBlur: 7, shadowColor: '#5aa4c0' });
+        // player.x = 14;
+        game.physics.arcade.moveToXY(player, game.input.pointer1.x, player.y, 1000, 100);
+        // game.add.text(game.width/2, 200, game.input.pointer1.x, { fontSize: '32px', fill: '#fff', shadowBlur: 7, shadowColor: '#5aa4c0' });
       }
     }
   },
