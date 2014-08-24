@@ -11,6 +11,7 @@ var scoreText;
 var menuSound, collectSound, gameOverSound, playingSound;
 var menuIce;
 var score;
+var game;
 
 var ScoreStorage = {
   getMaximumScore: function() {
@@ -380,13 +381,15 @@ var GAMEOVER_STATE = {
   }
 }
 
-// get dimensions of the window considering retina displays
-var gameWidth = window.innerWidth*window.devicePixelRatio,
-    gameHeight = window.innerHeight*window.devicePixelRatio;
-var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'Ice Bucket Collect Challange');
+window.addEventListener('load', function() {
+  // get dimensions of the window considering retina displays
+  var gameWidth = window.innerWidth*window.devicePixelRatio,
+      gameHeight = window.innerHeight*window.devicePixelRatio;
+  game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'Ice Bucket Collect Challange');
 
-game.state.add('menu', MENU_STATE);
-game.state.add('play', PLAY_STATE);
-game.state.add('gameover', GAMEOVER_STATE);
+  game.state.add('menu', MENU_STATE);
+  game.state.add('play', PLAY_STATE);
+  game.state.add('gameover', GAMEOVER_STATE);
 
-game.state.start('menu');
+  game.state.start('menu');
+});
