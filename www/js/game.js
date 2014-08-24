@@ -254,14 +254,6 @@ var GameUpdater = {
 var PLAY_STATE = {
   preload: function preload() {
     score = 0;
-    // images
-
-    // scenario
-
-    // audios
-    game.load.audio('iceCollected', 'gmae.mp3');
-    game.load.audio('gameOverSound', 'perdeu.mp3');
-    game.load.audio('background', 'background.mp3');
   },
   create: GameCreator.setup,
   update: GameUpdater.run
@@ -288,8 +280,11 @@ var MENU_STATE = {
     game.load.image('tree', 'assets/tree.png');
 
     // audios
-    // game.load.audio('intro', 'assets/intro.mp3');
-    console.log('ae');
+    game.load.audio('intro', 'assets/intro.mp3');
+    game.load.audio('iceCollected', 'gmae.mp3');
+    game.load.audio('gameOverSound', 'perdeu.mp3');
+    game.load.audio('background', 'background.mp3');
+    // audios
     menuSound = game.add.audio('intro');
     collectSound = game.add.audio('iceCollected');
     gameOverSound = game.add.audio('gameOverSound');
@@ -393,7 +388,7 @@ var GAMEOVER_STATE = {
   }
 }
 
-window.addEventListener('deviceready', function() {
+function startGame() {
   // get dimensions of the window considering retina displays
   var gameWidth = window.innerWidth*window.devicePixelRatio,
       gameHeight = window.innerHeight*window.devicePixelRatio;
@@ -404,4 +399,10 @@ window.addEventListener('deviceready', function() {
   game.state.add('gameover', GAMEOVER_STATE);
 
   game.state.start('menu');
-});
+}
+
+if (window.device != '') {
+  window.addEventListener('deviceready', startGame);
+} else {
+  window.addEventListener('load', startGame);
+}
