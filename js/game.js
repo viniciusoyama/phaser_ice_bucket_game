@@ -42,7 +42,16 @@ var GameCreator = {
   },
   setupWorld: function() {
     //  A simple background for our game
-    game.add.tileSprite(0, 0, game.width, game.cache.getImage('sky').height, 'sky');
+    // game.add.tileSprite(0, 0, game.width, game.cache.getImage('sky').height, 'sky');
+    var myBitmap = game.add.bitmapData(game.width, game.height);
+
+    var grd=myBitmap.context.createLinearGradient(0,0,0,500);
+    grd.addColorStop(0,"#169ac5");
+    grd.addColorStop(1,"#9addf3");
+    myBitmap.context.fillStyle=grd;
+    myBitmap.context.fillRect(0,0,game.width, game.height);
+    game.add.sprite(0, 0, myBitmap);
+
     // Here we create the ground.
     //  The platforms group contains the ground and the 2 ledges we can jump on
     ground = game.add.tileSprite(0, game.height - 70, game.width, 70, 'ground');
@@ -264,7 +273,6 @@ var PLAY_STATE = {
 var MENU_STATE = {
   preload: function preload() {
     // images
-    game.load.image('sky', 'assets/sky.jpg');
     game.load.image('ground', 'assets/ground.png');
     game.load.image('ice', 'assets/iceBlockHalfAlt.png', 70, 40);
     game.load.image('player', 'assets/player.png', 32, 48);
@@ -383,8 +391,8 @@ var GAMEOVER_STATE = {
 }
 
 // get dimensions of the window considering retina displays
-var gameWidth = window.innerWidth,
-    gameHeight = window.innerHeight;
+var gameWidth = window.innerWidth*window.devicePixelRatio,
+    gameHeight = window.innerHeight*window.devicePixelRatio;
 var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'Ice Bucket Collect Challange');
 
 game.state.add('menu', MENU_STATE);
@@ -392,7 +400,3 @@ game.state.add('play', PLAY_STATE);
 game.state.add('gameover', GAMEOVER_STATE);
 
 game.state.start('menu');
-
-window.on('orientationchange', function() {
-
-});
