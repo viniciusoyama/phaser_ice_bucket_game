@@ -42,7 +42,7 @@ var GameCreator = {
   },
   setupWorld: function() {
     //  A simple background for our game
-    game.add.sprite(0, 0, 'sky');
+    game.add.tileSprite(0, 0, game.width, game.cache.getImage('sky').height, 'sky');
     // Here we create the ground.
     //  The platforms group contains the ground and the 2 ledges we can jump on
     ground = game.add.tileSprite(0, game.height - 70, game.width, 70, 'ground');
