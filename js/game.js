@@ -74,16 +74,21 @@ var GameCreator = {
     currentResource = game.add.sprite(game.width/2 - 90, game.height - 70 - 70, 'green_candy');
   },
   setupIces: function() {
+    // each 150pxs spanws an ice with 4 limit
+    var maxIceNumber = Math.floor(game.width/150);
+    maxIceNumber = Math.min(4, maxIceNumber);
     ices = game.add.group();
     ices.enableBody = true;
-    ices.createMultiple(4, 'ice');
-
+    ices.createMultiple(maxIceNumber, 'ice');
     iceRespawnTimer = game.time.events.loop(800, WorldManager.respawnIces, this);
   },
   setupSnowballs: function() {
+    // each 150pxs spanws an ice with 4 limit
+    var maxSnowballNumber = Math.floor(game.width/120);
+    maxSnowballNumber = Math.min(9, maxSnowballNumber);
     snowballs = game.add.group();
     snowballs.enableBody = true;
-    snowballs.createMultiple(7, 'snowball');
+    snowballs.createMultiple(maxSnowballNumber, 'snowball');console.log(maxSnowballNumber);
     WorldManager.respawnSnowballs();
     WorldManager.respawnSnowballs();
     WorldManager.respawnSnowballs();
