@@ -281,7 +281,19 @@ var MENU_STATE = {
     game.load.image('tree', 'assets/tree.png');
 
     // audios
-    game.load.audio('intro', 'assets/intro.mp3');
+    // game.load.audio('intro', 'assets/intro.mp3');
+    console.log('play');
+    menuSound = new Media('assets/intro.mp3',
+        // success callback
+        function () {
+            console.log("playAudio():Audio Success");
+        },
+        // error callback
+        function (err) {
+            console.log("playAudio():Audio Error: " + err);
+        });
+      console.log('play');
+    menuSound.play();
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.scale.setScreenSize();
     game.scale.refresh();
@@ -305,8 +317,7 @@ var MENU_STATE = {
     menuIce.body.gravity.y = 500;
 
     // sounds
-    menuSound = game.add.audio('intro');
-    menuSound.play('', 0, 0.8, true);
+    menuSound.play();
 
     // play
     var startButton = game.add.button(game.width/2, game.height - 140, 'startButton', function() {

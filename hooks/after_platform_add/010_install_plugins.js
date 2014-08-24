@@ -8,7 +8,7 @@
 var pluginlist = [
   'org.apache.cordova.console',
   'org.apache.cordova.device',
-  'org.apache.cordova.AudioHandler'
+  'org.apache.cordova.media'
 ];
 
 // no need to configure below
