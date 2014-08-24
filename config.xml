@@ -7,7 +7,7 @@
     <author email="appsupport@icebucketcollectchallange.com" href="http://cordova.io">
       Ice Bucket Collect Challange team
     </author>
-    <plugin name="Media" value="org.apache.cordova.AudioHandler" />
+    <plugin name="Media" value="org.apache.cordova.media" />
     <content src="index.html" />
     <access origin="*" />
 </widget>

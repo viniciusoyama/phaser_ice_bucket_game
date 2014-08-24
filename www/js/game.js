@@ -392,7 +392,7 @@ var GAMEOVER_STATE = {
   }
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('deviceready', function() {
   // get dimensions of the window considering retina displays
   var gameWidth = window.innerWidth*window.devicePixelRatio,
       gameHeight = window.innerHeight*window.devicePixelRatio;
