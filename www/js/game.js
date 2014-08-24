@@ -252,9 +252,9 @@ var PLAY_STATE = {
     // scenario
 
     // audios
-    game.load.audio('iceCollected', 'assets/gmae.mp3');
-    game.load.audio('gameOverSound', 'assets/perdeu.mp3');
-    game.load.audio('background', 'assets/background.mp3');
+    game.load.audio('iceCollected', '/android_asset/www/gmae.mp3');
+    game.load.audio('gameOverSound', '/android_asset/www/perdeu.mp3');
+    game.load.audio('background', '/android_asset/www/background.mp3');
   },
   create: GameCreator.setup,
   update: GameUpdater.run
@@ -281,7 +281,7 @@ var MENU_STATE = {
     game.load.image('tree', 'assets/tree.png');
 
     // audios
-    game.load.audio('intro', 'assets/intro.mp3');
+    game.load.audio('intro', '/android_asset/www/assets/intro.mp3');
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.scale.setScreenSize();
     game.scale.refresh();
