@@ -12,6 +12,15 @@ var menuSound, collectSound, gameOverSound, playingSound;
 var menuIce;
 var score;
 var game;
+var cordovaPath = (function() {
+  var devicePlatform = device.platform;
+  if (devicePlatform === "iOS") {
+    path = "";
+  } else if (devicePlatform === "Android" || devicePlatform === 'android') {
+    path = "/android_asset/www/";
+  }
+  return path;
+})();
 
 var ScoreStorage = {
   getMaximumScore: function() {
@@ -282,8 +291,8 @@ var MENU_STATE = {
 
     // audios
     // game.load.audio('intro', 'assets/intro.mp3');
-
-    menuSound = new Media('assets/intro.mp3',
+    console.log('ae');
+    menuSound = new Media(cordovaPath + 'assets/intro.mp3',
     // success callback
     function () {
         console.log("playAudio():Audio Success");
@@ -292,6 +301,7 @@ var MENU_STATE = {
     function (err) {
         console.log("playAudio():Audio Error: " + err);
     });
+    console.log('4');
 
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.scale.setScreenSize();

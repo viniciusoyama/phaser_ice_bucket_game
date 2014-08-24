@@ -8,6 +8,11 @@
       Ice Bucket Collect Challange team
     </author>
     <plugin name="Media" value="org.apache.cordova.media" />
+
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
     <content src="index.html" />
     <access origin="*" />
 </widget>
