@@ -286,15 +286,23 @@ var MENU_STATE = {
     game.load.image('tree', 'assets/tree.png');
 
     // audios
-    game.load.audio('intro', cordovaPath+'assets/intro.mp3');
-    game.load.audio('iceCollected', cordovaPath+'assets/gmae.mp3');
-    game.load.audio('gameOverSound', cordovaPath+'assets/perdeu.mp3');
-    game.load.audio('background', cordovaPath+'assets/background.mp3');
+
     // audios
-    menuSound = game.add.audio('intro');
-    collectSound = game.add.audio('iceCollected');
-    gameOverSound = game.add.audio('gameOverSound');
-    playingSound = game.add.audio('background');
+    if (device.platform) {
+      menuSound = new Media(cordovaPath+'assets/intro.mp3');
+      collectSound = new Media(cordovaPath+'assets/gmae.mp3');
+      gameOverSound = new Media(cordovaPath+'assets/perdeu.mp3');
+      playingSound = new Media(cordovaPath+'assets/background.mp3');
+    } else {
+      game.load.audio('intro', cordovaPath+'assets/intro.mp3');
+      game.load.audio('iceCollected', cordovaPath+'assets/gmae.mp3');
+      game.load.audio('gameOverSound', cordovaPath+'assets/perdeu.mp3');
+      game.load.audio('background', cordovaPath+'assets/background.mp3');
+      menuSound = game.add.audio('intro');
+      collectSound = game.add.audio('iceCollected');
+      gameOverSound = game.add.audio('gameOverSound');
+      playingSound = game.add.audio('background');
+    }
 
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.scale.setScreenSize();
