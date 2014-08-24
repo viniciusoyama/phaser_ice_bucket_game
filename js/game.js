@@ -155,31 +155,26 @@ var ColisionManager = {
 
 var WorldManager = {
   respawnIces: function() {
-    WorldManager.addOneIce();
+    var ice = ices.getFirstDead();
+    if (ice) {
+      WorldManager.respawnResource(ice);
+    }
   },
   respawnSnowballs: function() {
     var snowball = snowballs.getFirstDead();
-    var x = Math.random() * (game.world.width - 40);
-    x = Math.max(x, 40);
     if (snowball) {
-      snowball.scale.setTo(0.8, 0.8);
-      snowball.body.width = 60;
-      snowball.body.height = 60;
-      snowball.reset(x, 0);
-      snowball.body.gravity.y = 500 + 1000*Math.random();
+       WorldManager.respawnResource(snowball);
     }
   },
-  addOneIce: function() {
-    var ice = ices.getFirstDead();
+  respawnResource: function(resource) {
     var x = Math.random() * (game.world.width - 40);
     x = Math.max(x, 40)
-    if (ice) {
-      ice.scale.setTo(0.5, 0.5);
-      ice.body.width = 35;
-      ice.body.height = 20;
-      ice.reset(x, 0);
-      ice.body.gravity.y = 500 + 1000*Math.random();
-    }
+    resource.scale.setTo(0.5, 0.5);
+    resource.body.width = 35;
+    resource.body.height = 20;
+    resource.reset(x, 0);
+    resource.body.gravity.y = 500 + 1000*Math.random();
+
   }
 };
 
