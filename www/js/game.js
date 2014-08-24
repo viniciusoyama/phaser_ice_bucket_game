@@ -282,18 +282,17 @@ var MENU_STATE = {
 
     // audios
     // game.load.audio('intro', 'assets/intro.mp3');
-    console.log('play');
+
     menuSound = new Media('assets/intro.mp3',
-        // success callback
-        function () {
-            console.log("playAudio():Audio Success");
-        },
-        // error callback
-        function (err) {
-            console.log("playAudio():Audio Error: " + err);
-        });
-      console.log('play');
-    menuSound.play();
+    // success callback
+    function () {
+        console.log("playAudio():Audio Success");
+    },
+    // error callback
+    function (err) {
+        console.log("playAudio():Audio Error: " + err);
+    });
+
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.scale.setScreenSize();
     game.scale.refresh();
@@ -317,6 +316,7 @@ var MENU_STATE = {
     menuIce.body.gravity.y = 500;
 
     // sounds
+    menuSound.setVolume(0.5)
     menuSound.play();
 
     // play
