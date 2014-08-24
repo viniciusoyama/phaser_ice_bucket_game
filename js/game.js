@@ -304,7 +304,7 @@ var MENU_STATE = {
 
     var logo = game.add.sprite(game.world.width/2, 50, 'logo');
     logo.anchor.setTo(0.5, 0);
-    // game.add.tween(logo).to({y: 80}, 700, Phaser.Easing.Linear.NONE, true, 0, 1000, true);
+    logo.scale.setTo(0.7, 0.7);
   },
   update: function() {
 
@@ -353,8 +353,10 @@ var GAMEOVER_STATE = {
   }
 }
 
-
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'Ice Bucket Collect Challange');
+// get dimensions of the window considering retina displays
+var gameWidth = window.innerWidth * window.devicePixelRatio,
+    gameHeight = window.innerHeight * window.devicePixelRatio;
+var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'Ice Bucket Collect Challange');
 
 game.state.add('menu', MENU_STATE);
 game.state.add('play', PLAY_STATE);
