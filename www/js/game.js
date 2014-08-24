@@ -281,9 +281,9 @@ var MENU_STATE = {
 
     // audios
     game.load.audio('intro', 'assets/intro.mp3');
-    game.load.audio('iceCollected', 'gmae.mp3');
-    game.load.audio('gameOverSound', 'perdeu.mp3');
-    game.load.audio('background', 'background.mp3');
+    game.load.audio('iceCollected', 'assets/gmae.mp3');
+    game.load.audio('gameOverSound', 'assets/perdeu.mp3');
+    game.load.audio('background', 'assets/background.mp3');
     // audios
     menuSound = game.add.audio('intro');
     collectSound = game.add.audio('iceCollected');
@@ -401,7 +401,7 @@ function startGame() {
   game.state.start('menu');
 }
 
-if (window.device != '') {
+if (!!window.device.platform) {
   window.addEventListener('deviceready', startGame);
 } else {
   window.addEventListener('load', startGame);
