@@ -252,9 +252,9 @@ var PLAY_STATE = {
     // scenario
 
     // audios
-    game.load.audio('iceCollected', '/android_asset/www/gmae.mp3');
-    game.load.audio('gameOverSound', '/android_asset/www/perdeu.mp3');
-    game.load.audio('background', '/android_asset/www/background.mp3');
+    game.load.audio('iceCollected', 'gmae.mp3');
+    game.load.audio('gameOverSound', 'perdeu.mp3');
+    game.load.audio('background', 'background.mp3');
   },
   create: GameCreator.setup,
   update: GameUpdater.run
@@ -281,7 +281,7 @@ var MENU_STATE = {
     game.load.image('tree', 'assets/tree.png');
 
     // audios
-    game.load.audio('intro', '/android_asset/www/assets/intro.mp3');
+    game.load.audio('intro', 'assets/intro.mp3');
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
     game.scale.setScreenSize();
     game.scale.refresh();
@@ -355,7 +355,7 @@ var GAMEOVER_STATE = {
     gameOverChar.anchor.setTo(0.5,0.5);
     gameOverChar.scale.setTo(0.6, 0.6);
     // play
-    var startButton = game.add.button(game.width/2, 390, 'startButton', function() {
+    var startButton = game.add.button(game.width/2, game.height - 200, 'startButton', function() {
       menuSound.stop();
       gameOverSound.stop();
       game.state.start('play');
@@ -374,7 +374,7 @@ var GAMEOVER_STATE = {
     scoreText = game.add.text(game.width/2, 370, 'Your record is: ' + ScoreStorage.getMaximumScore(), { fontSize: '28px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5,0.5);
 
-    scoreText = game.add.text(game.width/2, game.height - 200, 'You did: ' + score, { fontSize: '30px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
+    scoreText = game.add.text(game.width/2, 320, 'You did: ' + score, { fontSize: '30px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5,0.5);
   },
   update: function() {
