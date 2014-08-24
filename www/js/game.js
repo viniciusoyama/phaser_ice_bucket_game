@@ -13,7 +13,13 @@ var menuIce;
 var score;
 var game;
 
-window.device = window.device || {};
+if (window.device) {
+  console.log("Device is defined");
+} else {
+  console.log("Device is NOT defined");
+  window.device = {};
+}
+
 var cordovaPath = (function() {
   var devicePlatform = window.device.platform;
   var path = "";
@@ -280,10 +286,10 @@ var MENU_STATE = {
     game.load.image('tree', 'assets/tree.png');
 
     // audios
-    game.load.audio('intro', 'assets/intro.mp3');
-    game.load.audio('iceCollected', 'assets/gmae.mp3');
-    game.load.audio('gameOverSound', 'assets/perdeu.mp3');
-    game.load.audio('background', 'assets/background.mp3');
+    game.load.audio('intro', cordovaPath+'assets/intro.mp3');
+    game.load.audio('iceCollected', cordovaPath+'assets/gmae.mp3');
+    game.load.audio('gameOverSound', cordovaPath+'assets/perdeu.mp3');
+    game.load.audio('background', cordovaPath+'assets/background.mp3');
     // audios
     menuSound = game.add.audio('intro');
     collectSound = game.add.audio('iceCollected');
