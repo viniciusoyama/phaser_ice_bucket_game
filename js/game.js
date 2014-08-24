@@ -179,7 +179,7 @@ var WorldManager = {
     resource.body.height = 20;
     resource.reset(x, 0);
     var velocityRatio = Math.min(game.height/700, 1);
-    resource.body.velocity.y = 800*velocityRatio*Math.random();
+    resource.body.velocity.y = (500+300*Math.random())*velocityRatio;
 
   }
 };
@@ -296,12 +296,16 @@ var MENU_STATE = {
     menuSound.play('', 0, 0.8, true);
 
     // play
-    var startButton = game.add.button(game.width/2, game.height*2/3, 'startButton', function() {
+    var startButton = game.add.button(game.width/2, game.height*2/3 - 30, 'startButton', function() {
       menuSound.stop();
       game.state.start('play');
     }, this);
     startButton.anchor.setTo(0.5,0.5);
-    game.add.tween(startButton).to({y: (game.height*2/3 + 10)}, 700, Phaser.Easing.Linear.NONE, true, 0, 1000, true);
+    var startButtonRatio = Math.min(1, startButton.height/game.world.height);
+    if (startButtonRatio > 0.2) {
+      startButton.scale.setTo(0.5, 0.5);
+    }
+    game.add.tween(startButton).to({y: (startButton.y + 10)}, 700, Phaser.Easing.Linear.NONE, true, 0, 1000, true);
     // score
     scoreText = game.add.text(game.width/2, game.height*2/3 - 80, 'Your record is: ' + ScoreStorage.getMaximumScore(), { fontSize: '32px', fill: '#fff', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5,0.5);
@@ -338,22 +342,26 @@ var GAMEOVER_STATE = {
     gameOverChar.anchor.setTo(0.5,0.5);
     gameOverChar.scale.setTo(0.6, 0.6);
     // play
-    var startButton = game.add.button(game.width/2, game.height - 100, 'startButton', function() {
+    var startButton = game.add.button(game.width/2, 390, 'startButton', function() {
       menuSound.stop();
       gameOverSound.stop();
       game.state.start('play');
     }, this);
     startButton.anchor.setTo(0.5,0.5);
+    var startButtonRatio = Math.min(1, startButton.height/game.world.height);
+    if (startButtonRatio > 0.2) {
+      startButton.scale.setTo(0.5, 0.5);
+    }
     game.add.tween(startButton).to({y: (startButton.y + 10)}, 700, Phaser.Easing.Linear.NONE, true, 0, 1000, true);
 
-    scoreText = game.add.text(game.width/2, 10, 'GAME OVER', { fontSize: '40px', fill: '#fff', shadowBlur: 7, shadowColor: '#5aa4c0' });
+    scoreText = game.add.text(game.width/2, 10, 'GAME OVER', { fontSize: '40px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5, 0);
 
     // score
-    scoreText = game.add.text(game.width/2, 370, 'Your record is: ' + ScoreStorage.getMaximumScore(), { fontSize: '28px', fill: '#fff', shadowBlur: 7, shadowColor: '#5aa4c0' });
+    scoreText = game.add.text(game.width/2, 370, 'Your record is: ' + ScoreStorage.getMaximumScore(), { fontSize: '28px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5,0.5);
 
-    scoreText = game.add.text(game.width/2, 320, 'You did: ' + score, { fontSize: '30px', fill: '#fff', shadowBlur: 7, shadowColor: '#5aa4c0' });
+    scoreText = game.add.text(game.width/2, 320, 'You did: ' + score, { fontSize: '30px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5,0.5);
   },
   update: function() {
