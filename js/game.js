@@ -88,7 +88,7 @@ var GameCreator = {
     maxSnowballNumber = Math.min(9, maxSnowballNumber);
     snowballs = game.add.group();
     snowballs.enableBody = true;
-    snowballs.createMultiple(maxSnowballNumber, 'snowball');console.log(maxSnowballNumber);
+    snowballs.createMultiple(maxSnowballNumber, 'snowball');
     WorldManager.respawnSnowballs();
     WorldManager.respawnSnowballs();
     WorldManager.respawnSnowballs();
@@ -311,7 +311,6 @@ var MENU_STATE = {
     var logo = game.add.sprite(game.world.width/2, 50, 'logo');
     var logoRatio = Math.min(1, game.world.width/logo.width);
     logo.anchor.setTo(0.5, 0);
-    console.log(logoRatio)
     logo.scale.setTo(0.8*logoRatio, 0.8*logoRatio);
   },
   update: function() {
