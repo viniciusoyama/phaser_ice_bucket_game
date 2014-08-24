@@ -308,8 +308,10 @@ var MENU_STATE = {
     // logo
 
     var logo = game.add.sprite(game.world.width/2, 50, 'logo');
+    var logoRatio = Math.min(1, game.world.width/logo.width);
     logo.anchor.setTo(0.5, 0);
-    logo.scale.setTo(0.7, 0.7);
+    console.log(logoRatio)
+    logo.scale.setTo(0.8*logoRatio, 0.8*logoRatio);
   },
   update: function() {
 
