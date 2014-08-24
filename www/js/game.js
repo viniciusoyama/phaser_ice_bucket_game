@@ -374,7 +374,7 @@ var GAMEOVER_STATE = {
     scoreText = game.add.text(game.width/2, 370, 'Your record is: ' + ScoreStorage.getMaximumScore(), { fontSize: '28px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5,0.5);
 
-    scoreText = game.add.text(game.width/2, 320, 'You did: ' + score, { fontSize: '30px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
+    scoreText = game.add.text(game.width/2, game.height - 200, 'You did: ' + score, { fontSize: '30px', fill: '#000', shadowBlur: 7, shadowColor: '#5aa4c0' });
     scoreText.anchor.setTo(0.5,0.5);
   },
   update: function() {
