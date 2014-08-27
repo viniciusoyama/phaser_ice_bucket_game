@@ -402,17 +402,95 @@ var GAMEOVER_STATE = {
   }
 }
 
+BOOT_STATE = function (game) {
+  this.game = game;
+};
+
+BOOT_STATE.prototype = {
+
+    getRatio: function (type, w, h) {
+
+        var width = navigator.isCocoonJS ? window.innerWidth : w,
+            height = navigator.isCocoonJS ? window.innerHeight : h;
+
+        var dips = window.devicePixelRatio;
+        width = width * dips;
+        height = height * dips;
+
+        var scaleX = width / w,
+            scaleY = height / h,
+            result = {
+                x: 1,
+                y: 1
+            };
+
+        switch (type) {
+            case 'all':
+                result.x = scaleX > scaleY ? scaleY : scaleX;
+                result.y = scaleX > scaleY ? scaleY : scaleX;
+                break;
+            case 'fit':
+                result.x = scaleX > scaleY ? scaleX : scaleY;
+                result.y = scaleX > scaleY ? scaleX : scaleY;
+                break;
+            case 'fill':
+                result.x = scaleX;
+                result.y = scaleY;
+                break;
+        }
+
+        return result;
+    },
+
+    setupScaling: function () {
+
+      if (this.game.device.desktop) {
+          this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+          this.game.scale.pageAlignHorizontally = true;
+          this.game.scale.pageAlignVertically = true;
+          this.game.scale.setScreenSize(true);
+      }
+      else {
+          this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+          this.game.scale.pageAlignHorizontally = true;
+          this.game.scale.pageAlignVertically = true;
+          this.game.scale.forceOrientation(false, true, 'orientation');
+          this.game.scale.setScreenSize(true);
+      }
+
+      this.game.world.setBounds(0, 0, 640, 960);
+    },
+    
+
+    create: function () {
+        this.setupScaling();
+        this.game.state.start('Preloader');
+    }
+
+};
+
+PRELOADER_STATE = function (game) {
+    this.game = game;
+};
+
+PRELOADER_STATE.prototype = {
+  create: function() {
+
+  }
+};
+
 function startGame() {
   // get dimensions of the window considering retina displays
   var gameWidth = window.innerWidth*window.devicePixelRatio,
       gameHeight = window.innerHeight*window.devicePixelRatio;
   game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'Ice Bucket Collect Challange');
-
-  game.state.add('menu', MENU_STATE);
+  game.state.add('Boot', BOOT_STATE);
+  game.state.add('Preloader', PRELOADER_STATE);
+  game.state.add('menu', MENU_STATE); 
   game.state.add('play', PLAY_STATE);
   game.state.add('gameover', GAMEOVER_STATE);
 
-  game.state.start('menu');
+  game.state.start('Boot')
 }
 
 if (!!window.device.platform) {

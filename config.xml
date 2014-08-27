@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.codus.icebucketcollectchallange" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.icebucketcollectchallange" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Ice Bucket Collect Challange</name>
     <description>
       Ice Bucket Collect Challange game. Help Bill to collect all the ices that fall from the sky. How many can you collect? Challange your friends and be the champion.
@@ -9,10 +9,20 @@
     </author>
     <plugin name="Media" value="org.apache.cordova.media" />
 
+    
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="SplashScreen" value="splash" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="Orientation" value="landscape" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
 </widget>
