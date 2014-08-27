@@ -267,47 +267,6 @@ var PLAY_STATE = {
 
 // ============== PLAY STATE
 var MENU_STATE = {
-  preload: function preload() {
-    // images
-    game.load.image('ground', 'assets/ground.png');
-    game.load.image('ice', 'assets/iceBlockHalfAlt.png', 70, 40);
-    game.load.image('player', 'assets/player.png', 32, 48);
-    game.load.image('snowball', 'assets/snowBallBig.png');
-    game.load.image('startButton', 'assets/play.png');
-    game.load.image('logo', 'assets/logo.png');
-
-    // scenario
-    game.load.image('plant', 'assets/plant.png');
-    game.load.image('plantAlt', 'assets/plantAlt.png');
-    game.load.image('red_candy', 'assets/red_candy.png');
-    game.load.image('red_candy2', 'assets/red_candy2.png');
-    game.load.image('green_candy', 'assets/green_candy.png');
-    game.load.image('rock', 'assets/rock.png');
-    game.load.image('tree', 'assets/tree.png');
-
-    // audios
-
-    // audios
-    if (device.platform) {
-      menuSound = new Media(cordovaPath+'assets/intro.mp3');
-      collectSound = new Media(cordovaPath+'assets/gmae.mp3');
-      gameOverSound = new Media(cordovaPath+'assets/perdeu.mp3');
-      playingSound = new Media(cordovaPath+'assets/background.mp3');
-    } else {
-      game.load.audio('intro', cordovaPath+'assets/intro.mp3');
-      game.load.audio('iceCollected', cordovaPath+'assets/gmae.mp3');
-      game.load.audio('gameOverSound', cordovaPath+'assets/perdeu.mp3');
-      game.load.audio('background', cordovaPath+'assets/background.mp3');
-      menuSound = game.add.audio('intro');
-      collectSound = game.add.audio('iceCollected');
-      gameOverSound = game.add.audio('gameOverSound');
-      playingSound = game.add.audio('background');
-    }
-
-    game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
-    game.scale.setScreenSize();
-    game.scale.refresh();
-  },
   create: function() {
     // world
     GameCreator.setupPhisics();
@@ -363,9 +322,6 @@ var MENU_STATE = {
 // ====== GAME OVER STATE
 
 var GAMEOVER_STATE = {
-  preload: function preload() {
-    game.load.image('gameoverChar', 'assets/gameoverchar.png');
-  },
   create: function() {
     // world
     GameCreator.setupPhisics();
@@ -459,12 +415,15 @@ BOOT_STATE.prototype = {
       }
 
       this.game.world.setBounds(0, 0, 640, 960);
+      // game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+      // game.scale.setScreenSize();
+      // game.scale.refresh();
     },
     
 
     create: function () {
-        this.setupScaling();
-        this.game.state.start('Preloader');
+      this.setupScaling();
+      this.game.state.start('Preloader');
     }
 
 };
@@ -474,8 +433,49 @@ PRELOADER_STATE = function (game) {
 };
 
 PRELOADER_STATE.prototype = {
-  create: function() {
+  preload: function() {
+    // images
 
+    game.load.image('gameoverChar', 'assets/gameoverchar.png');
+    game.load.image('ground', 'assets/ground.png');
+    game.load.image('ice', 'assets/iceBlockHalfAlt.png', 70, 40);
+    game.load.image('player', 'assets/player.png', 32, 48);
+    game.load.image('snowball', 'assets/snowBallBig.png');
+    game.load.image('startButton', 'assets/play.png');
+    game.load.image('logo', 'assets/logo.png');
+
+    // scenario
+    game.load.image('plant', 'assets/plant.png');
+    game.load.image('plantAlt', 'assets/plantAlt.png');
+    game.load.image('red_candy', 'assets/red_candy.png');
+    game.load.image('red_candy2', 'assets/red_candy2.png');
+    game.load.image('green_candy', 'assets/green_candy.png');
+    game.load.image('rock', 'assets/rock.png');
+    game.load.image('tree', 'assets/tree.png');
+
+    // audios
+
+    // audios
+    if (device.platform) {
+      menuSound = new Media(cordovaPath+'assets/intro.mp3');
+      collectSound = new Media(cordovaPath+'assets/gmae.mp3');
+      gameOverSound = new Media(cordovaPath+'assets/perdeu.mp3');
+      playingSound = new Media(cordovaPath+'assets/background.mp3');
+    } else {
+      game.load.audio('intro', cordovaPath+'assets/intro.mp3');
+      game.load.audio('iceCollected', cordovaPath+'assets/gmae.mp3');
+      game.load.audio('gameOverSound', cordovaPath+'assets/perdeu.mp3');
+      game.load.audio('background', cordovaPath+'assets/background.mp3');
+      menuSound = game.add.audio('intro');
+      collectSound = game.add.audio('iceCollected');
+      gameOverSound = game.add.audio('gameOverSound');
+      playingSound = game.add.audio('background');
+    }  
+  },
+    
+
+  create: function () {
+    this.game.state.start('menu');
   }
 };
 
